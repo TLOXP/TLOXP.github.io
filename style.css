@@ -1,0 +1,363 @@
+:root {
+    --muted: #999;
+    --primary: #1e87f0;
+    --secondary: #222;
+    --success: #32d296;
+    --warning: #faa05a;
+    --danger: #f0506e;
+
+    --ee7-green: #0e5e20; 
+    --ee7-dark-green: #29892e;
+    --ee7-light-green: #0abf34;
+    --ee7-green-focus: #10441c;
+    --ee7-white: #eee;
+}
+/*#region native style */
+    html {
+        background: #15181f;
+    }
+    *::selection {
+        background: var(--ee7-dark-green) !important; /* Safari */
+    }
+    input::selection {
+        background: var(--ee7-dark-green) !important; /* Safari */
+    }
+    textarea::selection {
+        background: var(--ee7-dark-green) !important; /* Safari */
+    }
+    code {
+        color: var(--ee7-dark-green) !important;
+        background: #282a37 !important;
+    }
+    pre {
+        color: var(--ee7-dark-green) !important;
+        background: #282a37 !important;
+        border: none !important;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        color: var(--ee7-green) !important;
+        text-decoration: none;
+    }
+/*#endregion  */
+/*#region ee7 style */
+    .ee7-select-background {
+        background: #333 !important;
+    }
+    .ee7-cursor-pointer:hover {
+        cursor: pointer;
+    }
+    .ee7-text-green {
+        color: var(--ee7-dark-green) !important;
+    }
+    .ee7-button-submit {
+        color: var(--ee7-white) !important;
+        background: var(--ee7-light-green) !important; 
+        border-color: var(--ee7-light-green) !important;
+    }
+    .ee7-button-submit:hover {
+        color: var(--ee7-white) !important;
+        background: var(--ee7-dark-green) !important; 
+        border-color: var(--ee7-dark-green) !important;
+    }
+    .ee7-button-danger {
+        color: var(--ee7-white) !important;
+        background: var(--danger) !important; 
+    }
+    .ee7-button-danger:hover {
+        color: var(--ee7-white) !important;
+        background: #733434 !important; 
+    }
+    .ee7-text-gray {
+        color: #999999 !important;
+    }
+    .ee7-text-white {
+        color: var(--ee7-white) !important;
+    }
+    .ee7-text-red {
+        color: var(--danger) !important;
+    }
+    .ee7-svg-color {
+        fill: var(--ee7-white) !important;
+    }
+    .ee7-block-background {
+        background: #1b1d29;
+    }
+    .ee7-input-background-green {
+        background: var(--ee7-dark-green) !important;
+    }
+    .ee7-input-background-green:hover {
+        background: var(--ee7-green) !important;
+        color: var(--ee7-white) !important;
+    }
+    .ee7-button-background {
+        background: #242632 !important;
+        border-color: #242632 !important;
+    }
+    .ee7-button-background:hover {
+        border-color: var(--ee7-green) !important;
+        color: var(--ee7-white) !important;
+    }
+    .ee7-button-background:focus {
+        background: #242632;
+        color: #ccc;
+        border-color: #242632 !important;
+    }
+    .ee7-input-background {
+        background: #242632;
+        border-color: #242632 !important;
+    }
+    .ee7-grid {
+        border-color: #ff5252 !important;
+    }
+    .ee7-grid > div {
+        border-color: #ff5252 !important;
+    }
+    .ee7-input-background:focus {
+       background: #242632 !important;
+    }
+    .ee7-input-background::selection {
+        border-color: #242632 !important;
+    }
+    .ee7-textDecoration-none {
+        text-decoration: none !important;
+    }
+    .ee7-textDecoration-none:hover {
+        text-decoration: none !important;
+    }
+    .ee7-input {
+        background: #242632;
+        border-color: #242632 !important;
+    }
+    .ee7-input:focus  {
+        background: #242632;
+        border-color: var(--ee7-light-green) !important;
+    }
+    .ee7-button-green {
+        background: var(--ee7-green) !important;
+        border-color: var(--ee7-green) !important;
+    }
+    .ee7-button-green:disabled {
+    	background-color: var(--secondary) !important;
+    	color: var(--ee7-white) !important;
+    }
+    .ee7-button-green:hover:disabled {
+        background-color: var(--danger) !important;
+        border-color: var(--danger) !important;
+        color: var(--secondary) !important;
+	    cursor: not-allowed;
+    }
+    .ee7-button-green::selection {
+        color: #fff !important;
+        background: var(--ee7-light-green) !important;
+    }
+    .ee7-button-green:focus {
+        background: var(--ee7-green-focus) !important;
+        border-color: var(--ee7-green-focus) !important;
+    }
+    .ee7-button-green:hover {
+        color: #fff !important;
+        background: var(--ee7-dark-green) !important;
+    }
+    .ee7-button-green-border {
+        background: var(--ee7-green) !important;
+        border-color: var(--ee7-green) !important;
+    }
+    .ee7-button-green-border::selection {
+        color: #fff !important;
+        background: var(--ee7-light-green) !important;
+    }
+    .ee7-button-green-border:focus {
+        background: var(--ee7-green-focus) !important;
+        border-color: var(--ee7-green-focus) !important;
+    }
+    .ee7-button-green-border:hover {
+        color: var(--ee7-white) !important;
+        background: var(--ee7-dark-green) !important;
+    }
+    .ee7-uk-badge {
+        background: var(--ee7-green) !important;
+    }
+    .ee7-uk-badge-yellow {
+        background: var(--danger) !important;
+    }
+    .uk-input:focus {
+        color: var(--ee7-light-green);
+    }
+    .uk-input:hover {
+        color: var(--ee7-dark-green);
+    }
+    /*#region ee7 animation style */
+        .rotateLogo {
+            transition: 1s;
+            position: relative;
+            animation: rotation 800ms linear;
+        }
+
+        @keyframes rotation {
+            0%   {
+                bottom:0px;
+                transform: rotate(0deg);
+            }
+            25%  {
+                bottom:100px;
+            }
+            50%  {
+                bottom:100px;
+            }
+            75%  {
+                bottom:0px;
+            }
+            100% {
+                bottom:0px;
+                transform: rotate(359deg);
+            }
+        }
+    /*#endregion  */
+/*#endregion*/
+/*#region uk re-style */
+    .uk-alert-danger {
+        background: #242632 !important;
+        color: #a04a4a !important;
+    }
+    .uk-button:hover {
+        color: var(--ee7-white) !important;
+    }
+    .uk-select {
+        background: #242632;
+        border-color: #242632 !important;
+    }
+    .uk-select:focus {
+        background: #242632;
+        border-color: var(--ee7-light-green) !important;
+    }
+    .uk-modal-dialog {
+        color: var(--ee7-white) !important;
+        background: #242632 !important;
+    }
+    .uk-modal-dialog > .uk-modal-title {
+        color: var(--ee7-white) !important;
+    }
+    .uk-label {
+        background: var(--ee7-dark-green) !important;
+    }
+    .uk-nav-header {
+        color: var(--ee7-dark-green) !important;
+    }
+    .uk-card-default {
+        color: var(--ee7-white) !important;
+        background: #1b1d29 !important;
+    }
+    .uk-dropdown {
+        background: #1b1d29 !important;
+    }
+    .uk-card-default .uk-card-title {
+        color: var(--ee7-white) !important;
+    }
+    .uk-button-text::before {
+        border-color: var(--ee7-dark-green) !important;
+    }
+    .uk-countdown-number, .uk-countdown-separator {
+        font-size: 16pt;
+    }
+    .uk-countdown > div {
+        padding-left: 5px !important;
+    }
+    .uk-countdown > div {
+        color: var(--warning) !important;
+    }
+    .uk-countdown > div > div > span {
+        color: var(--warning) !important;
+    }
+    .uk-countdown > p {
+        color: var(--warning) !important;
+    }
+/*#endregion*/
+/*#region tabulator style */
+    .tabulator .tabulator-header {
+        border-color: #15181f !important;
+    }
+    .tabulator .tabulator-header .tabulator-col {
+        border-color: #15181f !important;
+        background: #15181f !important;
+        color: var(--ee7-white) !important;
+    }
+    .tabulator .tabulator-footer .tabulator-page:disabled {
+        border-color: #15181f !important;
+        background: #15181f !important;
+        color: var(--ee7-white) !important;
+    }
+    .tabulator .tabulator-footer {
+        border-color: #15181f !important;
+        background: #15181f !important;
+        color: var(--ee7-white) !important;
+    }
+    .tabulator .tabulator-footer .tabulator-page:not(.disabled):hover {
+        border-color: var(--ee7-green) !important;
+        background: var(--ee7-green) !important;
+        color: var(--ee7-white) !important;
+    }
+    .tabulator .tabulator-footer .tabulator-page.active {
+        border-color: var(--ee7-dark-green) !important;
+        background: var(--ee7-dark-green) !important;
+        color: var(--ee7-white) !important;
+    }
+    .tabulator-row-odd {
+        background: #242632 !important;
+        color: var(--ee7-white) !important;
+    }
+    .tabulator-row-even {
+        background: #15181f !important;
+        color: var(--ee7-white) !important;
+    }
+    .tabulator-row:hover {
+        border-color: var(--ee7-dark-green) !important;
+    }
+    .tabulator-row {
+        border-bottom: 1px solid #333 !important;
+    }
+    .tabulator .tabulator-footer .tabulator-page {
+        border-color: #333 !important;
+        background: hsla(0,0%,100%,.2);
+    }
+    .tabulator-header-filter > input {
+        background: #242632 !important;
+        border-color: #242632 !important;
+    }
+    .tabulator-tableholder {
+        background: #242632 !important;
+    }
+    .tabulator-header-filter > input[type=search]:hover {
+        border-color: var(--ee7-dark-green) !important;
+        color: var(--ee7-dark-green) !important;
+    }
+    .tabulator-col-title {
+        text-align: center;
+    }
+/*#endregion  */
+/*#region custom style */
+    .text-address {
+        color: var(--ee7-white) !important;
+    }
+    .text-address code {
+        font-size: 16pt;
+    }
+    .text-Attention {
+        color: #666;
+    }
+    .result-btn-download {
+        background-color: var(--ee7-dark-green) !important;
+        transition: 0.3s;
+    }
+    .result-btn-download:hover {
+        background-color: var(--ee7-green) !important;
+    }
+    .result-warning {
+        color: var(--warning) !important;
+    }
+    .result-notFound {
+        color: var(--danger) !important;
+    }
+/*#endregion  */
