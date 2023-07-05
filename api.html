@@ -1,20 +1,39 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Documentation</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+    }
+    h1, h2, h3, p, pre {
+      color: #fff;
+    }
+    code {
+      background-color: #555;
+      padding: 2px 4px;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .table {
+      background-color: #333;
+      color: #fff;
+    }
+    .table th, .table td {
+      border-color: #555;
+    }
+  </style>
 </head>
 
-<body>
+<body data-new-gr-c-s-check-loaded="14.1114.0" data-gr-ext-installed="">
   <div class="container">
     <h1>API Documentation</h1>
-    <p>API endpoint: <code>http://api.ching.lol</code></p>
-    <hr>
-
-    <h2>API Parameters</h2>
+    <h2>Normal TLO Lookup</h2>
+    <p>Endpoint: <code>http://api.ching.lol</code></p>
+    <h3>API Parameters</h3>
     <table class="table">
       <thead>
         <tr>
@@ -37,12 +56,12 @@
         <tr>
           <td><code>street</code></td>
           <td>The street address.</td>
-          <td><code>1234 Sesime St</code></td>
+          <td><code>1234 Sesame St</code></td>
         </tr>
         <tr>
           <td><code>city</code></td>
           <td>The city name.</td>
-          <td><code>San Diego</code></td>
+          <td><code>Los Angeles</code></td>
         </tr>
         <tr>
           <td><code>state</code></td>
@@ -52,12 +71,12 @@
         <tr>
           <td><code>zipcode</code></td>
           <td>The ZIP code.</td>
-          <td><code>20593</code></td>
+          <td><code>99999</code></td>
         </tr>
         <tr>
           <td><code>dob</code></td>
           <td>The date of birth in <code>MM/DD/YYYY</code> format.</td>
-          <td><code>10/10/1999</code></td>
+          <td><code>01/30/1999</code></td>
         </tr>
         <tr>
           <td><code>license_key</code></td>
@@ -66,11 +85,57 @@
         </tr>
       </tbody>
     </table>
+    <h3>Example API request:</h3>
+    <pre><code>http://api.ching.lol?fname=John&amp;lname=Doe&amp;street=1234+Sesime+St&amp;city=San+Diego&amp;state=CA&amp;zipcode=20593&amp;dob=10/10/1999&amp;license_key=key_here</code></pre>
 
-    <h2>API Example</h2>
-    <p>Example API request:</p>
-    <pre><code>http://api.ching.lol?fname=John&amp;lname=Doe&amp;street=1234%20sesime%20st&amp;city=san%20diego&amp;state=CA&amp;zipcode=20593&amp;dob=10/10/1999&amp;license_key=key_here</code></pre>
+    <h2>Lookup Phone Number</h2>
+    <p>Endpoint: <code>http://api.ching.lol/number.php</code></p>
+    <h3>API Parameters</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>number</code></td>
+          <td>The phone number to lookup.</td>
+          <td><code>888-888-8888</code></td>
+        </tr>
+        <tr>
+          <td><code>license_key</code></td>
+          <td>The license key for accessing the API.</td>
+          <td><code>key_here</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Example API request:</h3>
+    <pre><code>http://api.ching.lol/number.php?number=888-888-8888&amp;license_key=key_here</code></pre>
+
+    <h2>Get User Balance</h2>
+    <p>Endpoint: <code>http://api.ching.lol/get_balance.php</code></p>
+    <h3>API Parameters</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>user</code></td>
+          <td>The user identifier or license key.</td>
+          <td><code>key_here</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Example API request:</h3>
+    <pre><code>http://api.ching.lol/get_balance.php?user=key_here</code></pre>
   </div>
 </body>
-
 </html>
