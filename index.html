@@ -1,26 +1,64 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.22/dist/css/uikit.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./tabulator_bootstrap5.min.css">
-    <link rel="stylesheet" href="./normalize.css">
-    <title>SexyLookupBot Converter</title>
-  </head>
-  <body>
-    <section class="uk-container">
-      <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid="">
-        <div class="uk-animation-slide-left">
-          <div class="uk-card uk-card-body ee7-block-background">
-            <h3 class="uk-card-title ee7-text-white">Single</h3>
-            <div class="uk-margin">
-              <input class="uk-input uk-margin-small ee7-button-background" type="text" placeholder="Fname" name="Fname" id="singleLookupFname">
-              <input class="uk-input uk-margin-small ee7-button-background" type="text" placeholder="Lname" name="Lname" id="singleLookupLname">
-              <input class="uk-input uk-margin-small ee7-button-background" type="text" placeholder="Address" name="Address" id="singleLookupAddress">
-              <input class="uk-input uk-margin-small ee7-button-background" type="text" placeholder="City" name="City" id="singleLookupCity">
-              <select class="uk-input uk-margin-small ee7-button-background ee7-cursor-pointer ee7-text-gray" type="text" name="State" id="singleLookupState">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLOxpBot Converter</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+    }
+    .card {
+      background-color: #1c1c1c;
+    }
+    .card-title {
+      color: #fff;
+    }
+    .form-control {
+      background-color: #2b2b2b;
+      border-color: #444;
+      color: #fff;
+    }
+    .form-control::placeholder {
+      color: #ccc;
+    }
+    .form-control:focus {
+      background-color: #333;
+      border-color: #555;
+      color: #fff;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .btn-primary:active {
+      background-color: #004185;
+      border-color: #004185;
+    }
+    .btn-primary:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <section class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title mb-4">Input</h3>
+            <div class="mb-3">
+              <input class="form-control mb-2" type="text" placeholder="First Name" name="Fname" id="singleLookupFname">
+              <input class="form-control mb-2" type="text" placeholder="Last Name" name="Lname" id="singleLookupLname">
+              <input class="form-control mb-2" type="text" placeholder="Street Address" name="Address" id="singleLookupAddress">
+              <input class="form-control mb-2" type="text" placeholder="City" name="City" id="singleLookupCity">
+              <select class="form-control mb-2" name="State" id="singleLookupState">
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
                 <option value="AZ">AZ</option>
@@ -77,51 +115,94 @@
                 <option value="WI">WI</option>
                 <option value="WY">WY</option>
               </select>
-              <input class="uk-input uk-margin-small ee7-button-background" type="text" placeholder="ZIP (5 digits)" name="ZIP" id="singleLookupZIP" maxlength="5">
-              <input class="uk-input uk-margin-small ee7-button-background" type="text" placeholder="DOB (MM/DD/YYYY)" name="DOB" id="singleLookupDOB">
+              <input class="form-control mb-2" type="text" placeholder="ZIP (5 digits)" name="ZIP" id="singleLookupZIP" maxlength="5">
+              <input class="form-control mb-2" type="text" placeholder="DOB (MM/DD/YYYY)" name="DOB" id="singleLookupDOB">
             </div>
-            <div class="uk-margin">
-              <input class="uk-button uk-button-primary ee7-button-green ee7-text-white" type="submit" placeholder="Input" id="singleLookup" value="Submit">
-            </div>
-          </div>
-        </div>
-        <div class="uk-animation-slide-right">
-          <div class="uk-card uk-card-body ee7-block-background">
-            <h3 class="uk-card-title ee7-text-white">Results</h3>
-            <div class="uk-margin">
-              <textarea class="uk-textarea ee7-button-background" rows="5" placeholder="Results go here" name="batchForm" id="batchLookupBody"></textarea>
+            <div class="mb-3">
+              <button class="btn btn-primary btn-block" type="button" id="singleLookup">Generate</button>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h3 class="card-title mb-4">Bot Syntax Generator</h3>
+            <div class="mb-3">
+              <textarea class="form-control" rows="5" placeholder="Generated syntax goes here" name="batchForm" id="botResults"></textarea>
+            </div>
+              <button class="btn btn-primary" type="button" id="copyResults" onclick="copy()">Copy Syntax</button>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-body">
+            <h3 class="card-title mb-4">API</h3>
+            <div class="mb-3">
+              <input class="form-control mb-2" type="text" placeholder="API Key" name="apiKey" id="apiKey">
+              <button class="btn btn-primary" type="button" id="viewApiResults">Get Results</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-    <script src="./tabulator.min.js"></script>
-    <script src="./uikit-icons.min.js"></script>
-    <script src="./uikit.min.js"></script>
-    <script>
-      // Wait for the DOM to be fully loaded
-      document.addEventListener('DOMContentLoaded', function() {
-        // Get references to the form and results textarea
-        var form = document.getElementById('singleLookup');
-        var resultsTextarea = document.getElementById('batchLookupBody');
-        // Add form submit event listener
-        form.addEventListener('click', function(event) {
-          event.preventDefault(); // Prevent the form from submitting
-          // Get the form input values
-          var fname = document.getElementById('singleLookupFname').value;
-          var lname = document.getElementById('singleLookupLname').value;
-          var address = document.getElementById('singleLookupAddress').value;
-          var city = document.getElementById('singleLookupCity').value;
-          var state = document.getElementById('singleLookupState').value;
-          var zip = document.getElementById('singleLookupZIP').value;
-          var dob = document.getElementById('singleLookupDOB').value;
-          // Concatenate the values in the desired format
-          var result = '/tlo ' + fname + ' ' + lname + ';' + address + ';' + city + ';' + state + ';' + zip + ';' + dob;
-          // Set the result in the textarea
-          resultsTextarea.value = result;
-        });
+    </div>
+  </section>
+
+  <script>
+    function copy() {
+      var copyText = document.getElementById("botResults");
+
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+
+      navigator.clipboard.writeText(copyText.value);
+      
+      alert("Copied syntax to clipboard: " + copyText.value);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      // Bot results
+      var form = document.getElementById('singleLookup');
+      var botResultsTextarea = document.getElementById('botResults');
+      form.addEventListener('click', function(event) {
+        event.preventDefault();
+        // ... Your bot result calculation ...
+
+        // Dummy example for bot results
+        var fname = document.getElementById('singleLookupFname').value;
+        var lname = document.getElementById('singleLookupLname').value;
+        var address = document.getElementById('singleLookupAddress').value;
+        var city = document.getElementById('singleLookupCity').value;
+        var state = document.getElementById('singleLookupState').value;
+        var zip = document.getElementById('singleLookupZIP').value;
+        var dob = document.getElementById('singleLookupDOB').value;
+        var botResult = '/tlo ' + fname + ' ' + lname + ';' + address + ';' + city + ';' + state + ';' + zip + ';' + dob;
+        botResultsTextarea.value = botResult;
       });
-    </script>
-  </body>
+
+      // API button
+      var apiKeyInput = document.getElementById('apiKey');
+      var viewApiResultsButton = document.getElementById('viewApiResults');
+
+      viewApiResultsButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        var apiKey = apiKeyInput.value;
+        var fname = document.getElementById('singleLookupFname').value;
+        var lname = document.getElementById('singleLookupLname').value;
+        var address = document.getElementById('singleLookupAddress').value;
+        var city = document.getElementById('singleLookupCity').value;
+        var state = document.getElementById('singleLookupState').value;
+        var zip = document.getElementById('singleLookupZIP').value;
+        var dob = document.getElementById('singleLookupDOB').value;
+
+        var apiUrl = `http://api.ching.lol?fname=${fname}&lname=${lname}&street=${address}&city=${city}&state=${state}&zipcode=${zip}&dob=${dob}&license_key=${apiKey}`;
+
+        // Open API results in a new tab
+        window.open(apiUrl, '_blank');
+      });
+    });
+  </script>
+</body>
+<div class="p-1 text-center" style="margin-top: 50px;">
+    <a href="https://t.me/TLOxpBot">@TLOxpBot</a><br>
+    <a href="https://t.me/JackieChan">Made by @JackieChan</a>
+  </div>
 </html>
