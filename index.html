@@ -59,6 +59,7 @@
               <input class="form-control mb-2" type="text" placeholder="Street Address" name="Address" id="singleLookupAddress">
               <input class="form-control mb-2" type="text" placeholder="City" name="City" id="singleLookupCity">
               <select class="form-control mb-2" name="State" id="singleLookupState">
+                <option value=""></option>
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
                 <option value="AZ">AZ</option>
@@ -134,15 +135,6 @@
               <button class="btn btn-primary" type="button" id="copyResults" onclick="copy()">Copy Syntax</button>
           </div>
         </div>
-        <div class="card mt-4">
-          <div class="card-body">
-            <h3 class="card-title mb-4">API</h3>
-            <div class="mb-3">
-              <input class="form-control mb-2" type="text" placeholder="API Key" name="apiKey" id="apiKey">
-              <button class="btn btn-primary" type="button" id="viewApiResults">Get Results</button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -174,29 +166,8 @@
         var state = document.getElementById('singleLookupState').value;
         var zip = document.getElementById('singleLookupZIP').value;
         var dob = document.getElementById('singleLookupDOB').value;
-        var botResult = '/tlo ' + fname + ' ' + lname + ';' + address + ';' + city + ';' + state + ';' + zip + ';' + dob;
+        var botResult = '/beta ' + fname + ' ' + lname + ';' + address + ';' + city + ';' + state + ';' + zip + ';' + dob;
         botResultsTextarea.value = botResult;
-      });
-
-      // API button
-      var apiKeyInput = document.getElementById('apiKey');
-      var viewApiResultsButton = document.getElementById('viewApiResults');
-
-      viewApiResultsButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        var apiKey = apiKeyInput.value;
-        var fname = document.getElementById('singleLookupFname').value;
-        var lname = document.getElementById('singleLookupLname').value;
-        var address = document.getElementById('singleLookupAddress').value;
-        var city = document.getElementById('singleLookupCity').value;
-        var state = document.getElementById('singleLookupState').value;
-        var zip = document.getElementById('singleLookupZIP').value;
-        var dob = document.getElementById('singleLookupDOB').value;
-
-        var apiUrl = `http://api.ching.lol?fname=${fname}&lname=${lname}&street=${address}&city=${city}&state=${state}&zipcode=${zip}&dob=${dob}&license_key=${apiKey}`;
-
-        // Open API results in a new tab
-        window.open(apiUrl, '_blank');
       });
     });
   </script>
