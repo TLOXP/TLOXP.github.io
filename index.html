@@ -54,12 +54,12 @@
           <div class="card-body">
             <h3 class="card-title mb-4">Input</h3>
             <div class="mb-3">
-              <input class="form-control mb-2" type="text" placeholder="First Name" name="Fname" id="singleLookupFname">
-              <input class="form-control mb-2" type="text" placeholder="Last Name" name="Lname" id="singleLookupLname">
+              <input class="form-control mb-2" type="text" placeholder="First Name (Required)" name="Fname" id="singleLookupFname">
+              <input class="form-control mb-2" type="text" placeholder="Last Name (Required)" name="Lname" id="singleLookupLname">
               <input class="form-control mb-2" type="text" placeholder="Street Address" name="Address" id="singleLookupAddress">
               <input class="form-control mb-2" type="text" placeholder="City" name="City" id="singleLookupCity">
-              <select class="form-control mb-2" name="State" id="singleLookupState">
-                <option value="State"></option>
+              <select class="form-control mb-2" name="State" type="text" id="singleLookupState">
+                <option value="">State (Required)</option>
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
                 <option value="AZ">AZ</option>
@@ -166,7 +166,7 @@
         var state = document.getElementById('singleLookupState').value;
         var zip = document.getElementById('singleLookupZIP').value;
         var dob = document.getElementById('singleLookupDOB').value;
-        var botResult = '/tlo ' + fname + ' ' + lname + ';' + address + ';' + city + ';' + state + ';' + zip + ';' + dob;
+        var botResult = fname + '\n' + lname + '\n' + address + '\n' + city + '\n' + state + '\n' + zip + '\n' + dob;
         botResultsTextarea.value = botResult;
       });
     });
